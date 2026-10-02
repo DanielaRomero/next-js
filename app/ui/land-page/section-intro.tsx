@@ -8,6 +8,7 @@ type SectionIntroProps = {
   linkLabel: string;
   linkUrl: string;
   centered?: boolean;
+  size?: "md" | "lg";
 };
 
 export default function SectionIntro({
@@ -18,12 +19,14 @@ export default function SectionIntro({
   linkLabel,
   linkUrl,
   centered = false,
+  size= "md",
 }: SectionIntroProps) {
   const variantClasses =
     variant === "teal" ? "text-brand-teal" : "text-brand-purple";
 
   const iconClasses = variant === "teal" ? "#0F766E" : "#FFFFFF";
-  const titleClasses = variant === "teal" ? "md:text-2xl" : "md:text-3xl";
+  const titleClasses = size === "md" ? "md:text-2xl" : "md:text-3xl";
+  const isPurpleVariant = variant === "purple";
 
   return (
     <div className={`flex flex-col ${centered ? "items-center mb-7" : ""}`}>
@@ -36,7 +39,7 @@ export default function SectionIntro({
       <p className="text-gray-800 text-lg md:text-base">{description}</p>
       <LinkButton
         href={linkUrl}
-        className={`${centered ? "bg-purple-700 text-white hover:bg-purple-950 rounded-lg" : "text-brand-teal hover:text-teal-950"}`}
+        className={`${isPurpleVariant ? "bg-purple-700 text-white hover:bg-purple-950 rounded-lg" : "text-brand-teal hover:text-teal-950"}`}
       >
         {linkLabel}
         <svg
