@@ -6,7 +6,7 @@ interface LinkButtonProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> 
 
 export function LinkButton({ children, className, ...rest }: LinkButtonProps) {
     return (
-        <a {...rest} className={clsx("inline-flex gap-1 mt-8 p-2 pl-2 font-semibold text-sm items-center", 
+        <a {...rest} className={clsx("inline-flex gap-1 mt-8 px-4 py-2 font-semibold text-sm items-center", 
         className
         )}
         >
